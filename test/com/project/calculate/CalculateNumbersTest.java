@@ -34,4 +34,14 @@ class CalculateNumbersTest {
 		Assertions.assertEquals(10, CalculateNumbers.Add("10"));
 	}
 
+	@Test
+	void testForSumOfTwoNumbers() {
+		Assertions.assertEquals(12, CalculateNumbers.Add("10,2"));
+	}
+
+	@Test
+	void testForSumOfNumbersWithCharactersInBetween() {
+		Assertions.assertEquals(20, CalculateNumbers.Add("10,2,a,g,8"));
+	}
+
 }
