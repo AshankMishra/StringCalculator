@@ -1,16 +1,9 @@
 package com.project.calculate;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 class CalculateNumbersTest {
-
-	@Test
-	void testAdd() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	void testNullPointerException() {
@@ -23,10 +16,22 @@ class CalculateNumbersTest {
 
 	@Test
 	void testEmptyString() {
+		String numbers = "";
+		Assertions.assertEquals(0, CalculateNumbers.Add(numbers));
+	}
+
+	@Test
+	void testNoNumericString() {
 		IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			String numbers = "";
+			String numbers = "abcde";
 			CalculateNumbers.Add(numbers);
 		});
-		Assertions.assertEquals("String cannot be empty", exception.getMessage());
+		Assertions.assertEquals("String contains no number", exception.getMessage());
 	}
+
+	@Test
+	void testForSumOfSingleNumber() {
+		Assertions.assertEquals(10, CalculateNumbers.Add("10"));
+	}
+
 }
