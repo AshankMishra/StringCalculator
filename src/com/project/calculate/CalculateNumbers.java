@@ -16,8 +16,9 @@ public class CalculateNumbers {
 			throw new IllegalArgumentException("String contains no number");
 		}
 		List<String> commaSeparatedListOfNumbers = Arrays.asList(numbersString.split(","));
+		
 		sumOfNumbers = commaSeparatedListOfNumbers.stream().filter(string -> string.matches(".*\\d.*"))
-				.map(s -> Integer.parseInt(s)).mapToInt(Integer::intValue).sum();
+				.map(s -> Integer.parseInt(s.trim())).mapToInt(Integer::intValue).sum();
 		return sumOfNumbers;
 	}
 }

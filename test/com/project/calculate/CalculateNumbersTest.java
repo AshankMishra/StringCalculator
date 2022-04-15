@@ -39,9 +39,16 @@ class CalculateNumbersTest {
 		Assertions.assertEquals(12, CalculateNumbers.Add("10,2"));
 	}
 
+	// Test to check if characters are ignored when sent as comma separated values
 	@Test
 	void testForSumOfNumbersWithCharactersInBetween() {
 		Assertions.assertEquals(20, CalculateNumbers.Add("10,2,a,g,8"));
+	}
+
+	// Test to check sum when numbers contain leading and trailing spaces
+	@Test
+	void testForSumOfNumbersWithLeadingAndTrailingSpaces() {
+		Assertions.assertEquals(28, CalculateNumbers.Add("7, 1,a , f, 8, 12"));
 	}
 
 }
