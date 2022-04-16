@@ -51,4 +51,10 @@ class CalculateNumbersTest {
 		Assertions.assertEquals(28, CalculateNumbers.Add("7, 1,a , f, 8, 12"));
 	}
 
+	// Test to check if new line acts as delimiter
+	@Test
+	void testForSumOfNumbersWithNewLineAsDelimiter() {
+		Assertions.assertEquals(6, CalculateNumbers.Add("1\n2,3"));
+	}
+
 }
