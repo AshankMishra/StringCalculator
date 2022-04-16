@@ -1,5 +1,7 @@
 package com.project.calculate;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -55,6 +57,20 @@ class CalculateNumbersTest {
 	@Test
 	void testForSumOfNumbersWithNewLineAsDelimiter() {
 		Assertions.assertEquals(6, CalculateNumbers.Add("1\n2,3"));
+	}
+
+	// Test for delimiter other than comma or new line
+	@Test
+	void testForDynamicDelimiter() {
+		Assertions.assertEquals(45, CalculateNumbers.Add("//;\n1;40;4"));
+	}
+
+	@Test
+	void testNegativeIntegerInString() {
+		IllegalArgumentException exception = Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			CalculateNumbers.Add("//;\n1;40;-4");
+		});
+		assertTrue(exception.getMessage().contains("Negatives not allowed- "));
 	}
 
 }
